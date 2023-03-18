@@ -1,4 +1,4 @@
-
+#!/usr/bin/env bash
 
 # echo all of the student*_in.txt file paths in the directory tree.
 find_tests() {
@@ -20,7 +20,7 @@ run_test() {
         >&2 echo -e "Could not run tests - out for test file \"$test_path\" -\n\"$out_path\" not found.";
         return 2;
     fi;
-    # TODO: for some reason trimming empty lines does not work.
+    # Trimming empty lines does not work, and unifying CRLF new lines to LF.
     local test_out=$(cat "$out_path" | sed 's/\r$//' | sed -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}');
     local actual_out=$(cat "$test_path" | "$1" | sed 's/\r$//' | sed -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}')
     if [[ "$actual_out" != "$test_out" ]]; then
