@@ -1,0 +1,8 @@
+15
+6
+libro
+albero
+tavolo
+casa
+scuola
+scarpa

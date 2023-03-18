@@ -1,0 +1,8 @@
+5
+
+xxx22
+11x22
+**xxx
+xx3xx
+xx3xx
+1 r 1 r 2 l 2 d 2 l 2 d 2 l 3 u 3 u 3 d * r 3 u 1 l 2 u 2 u 2 u 2 d 2 l 2 d 2 l

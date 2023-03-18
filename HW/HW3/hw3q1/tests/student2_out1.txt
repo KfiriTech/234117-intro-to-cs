@@ -1,0 +1,119 @@
+Are you ready for rush hour?
+Please enter the parking lot length: Please enter the parking lot:
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+|*||*|| |
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+Enter the car you want to move:
+Please enter the direction to move the car:
+Invalid move!
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+|*||*|| |
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+Enter the car you want to move:
+Please enter the direction to move the car:
+Invalid move!
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+|*||*|| |
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+Enter the car you want to move:
+Please enter the direction to move the car:
+Invalid move!
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+|*||*|| |
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+Enter the car you want to move:
+Please enter the direction to move the car:
+Invalid move!
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+|*||*|| |
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+Enter the car you want to move:
+Please enter the direction to move the car:
+Invalid move!
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+|*||*|| |
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+Enter the car you want to move:
+Please enter the direction to move the car:
+Invalid move!
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+|*||*|| |
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+Enter the car you want to move:
+Please enter the direction to move the car:
+Invalid move!
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+|*||*|| |
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+Enter the car you want to move:
+Please enter the direction to move the car:
+Invalid move!
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+|*||*|| |
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+Enter the car you want to move:
+Please enter the direction to move the car:
+Invalid move!
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+|*||*|| |
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+Enter the car you want to move:
+Please enter the direction to move the car:
+Invalid move!
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+|*||*|| |
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+Enter the car you want to move:
+Please enter the direction to move the car:
+~~~~~~~~~
+|1||1||1|
+~~~~~~~~~
+| ||*||*|
+~~~~~~~~~
+|2||2||2|
+~~~~~~~~~
+GAME OVER! YOU WIN :D

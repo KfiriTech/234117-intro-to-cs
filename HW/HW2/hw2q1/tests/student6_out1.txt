@@ -1,0 +1,2 @@
+Please enter enemy name:
+Something went wrong while getting the enemy name!

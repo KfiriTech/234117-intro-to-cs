@@ -1,0 +1,2 @@
+Please enter enemy name:
+Khalisi sent dragonA into the battle!!!
