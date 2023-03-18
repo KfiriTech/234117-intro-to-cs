@@ -21,12 +21,13 @@ run_test() {
         return 2;
     fi;
     # TODO: for some reason trimming empty lines does not work.
-    local test_out=$(cat "$out_path" | sed -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}');
-    local actual_out=$(cat "$test_path" | "$1" | sed -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}')
+    local test_out=$(cat "$out_path" | sed 's/\r$//' | sed -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}');
+    local actual_out=$(cat "$test_path" | "$1" | sed 's/\r$//' | sed -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}')
     if [[ "$actual_out" != "$test_out" ]]; then
         >&2 echo -e "Test \"$test_path\" - FAILED."
         >&2 echo -e "Expected:\n$test_out";
         >&2 echo -e "\nActual:\n$actual_out";
+        >&2 echo -e "\nDiff:\n$( diff <(echo "$test_out") <(echo "$actual_out") )";
         return 1;
     fi;
     echo "Test \"$test_path\" - PASSED."
@@ -38,7 +39,7 @@ compile_c_file() {
     local c_file_name="$(basename -- $c_file_path)";
     local c_file_out_name="${c_file_name%.*}"
     mkdir -p "$c_file_dirname/.out/";
-    /usr/bin/gcc -fdiagnostics-color=always -g "$c_file_path" -o "$c_file_dirname/.out/$c_file_out_name" -lm;
+    /usr/bin/gcc -fdiagnostics-color=always -std=c99 -g "$c_file_path" -o "$c_file_dirname/.out/$c_file_out_name" -lm;
     echo "$c_file_dirname/.out/$c_file_out_name";
 }
 
@@ -62,7 +63,7 @@ main() {
         echo;
     done;
 
-    echo "$success_count - $test_count";
+    echo "$success_count out of $test_count passed.";
 }
 
 main "$@";
