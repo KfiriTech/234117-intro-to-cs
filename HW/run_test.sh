@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Use `wsl -d Debian` to run on windows. Use `wsl -l` to see what you can run.
 
 # echo all of the student*_in.txt file paths in the directory tree.
 find_tests() {
@@ -7,7 +8,7 @@ find_tests() {
         if [[ "$test_path" == */student*_in.txt ]]; then
             echo "$test_path";
         fi;
-        if [ "$test_path" != */. ] && [[ -d "$test_path" ]]; then
+        if [[ "$test_path" != */. ]] && [[ -d "$test_path" ]]; then
             find_tests "$test_path";
         fi;
     done;
@@ -15,14 +16,21 @@ find_tests() {
 
 run_test() {
     local test_path="$2";
+    # Trimming empty lines does not work, and unifying CRLF new lines to LF.
+    local actual_out=$(cat "$test_path" | "$1" | sed 's/\r$//' | sed -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}')
+
     local out_path=$( echo "$test_path" | sed -e 's/_in\.txt$/_out1\.txt/g' );
+    # Override out files.
+    #echo "$actual_out" > $out_path;
     if [[ ! -f "$out_path" ]]; then
+        # Add missing out files.
+        #echo "$actual_out" > $out_path;
         >&2 echo -e "Could not run tests - out for test file \"$test_path\" -\n\"$out_path\" not found.";
         return 2;
     fi;
     # Trimming empty lines does not work, and unifying CRLF new lines to LF.
     local test_out=$(cat "$out_path" | sed 's/\r$//' | sed -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}');
-    local actual_out=$(cat "$test_path" | "$1" | sed 's/\r$//' | sed -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}')
+
     if [[ "$actual_out" != "$test_out" ]]; then
         >&2 echo -e "Test \"$test_path\" - FAILED."
         >&2 echo -e "Expected:\n$test_out";
@@ -44,6 +52,7 @@ compile_c_file() {
 }
 
 # iterate over the test input paths in the tree and print the matching out files
+# Get the path of the .c file and the path of the tests directory.
 main() {
     if [[ "$1" == "" ]]; then
         >&2 echo "Could not run tests - exec file parameter missing.";
